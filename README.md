@@ -14,3 +14,5 @@ Winters are tough on me, and feel extremely prolonged. In contrast to the previo
 ### Drawing 3 – Spring
 Spring is a little unexpected. There are definitely some trying times ahead, but there are some surprisingly pleasant days sprinkled here and there too. So, I plan on incorporating JavaScript that applies CSS transition/animation without the user directly interacting with the elements to play the part of the persistent winter weather, but will also give a balance of control to the user. I think spring still puts up a good fight, but you also have a bit more of a spring in your step too.   
 
+## Mockup 
+![mockup](https://cloud.githubusercontent.com/assets/9554414/25077647/ddcd9a64-22f9-11e7-889f-7ea56fa0a021.png)
