@@ -2,36 +2,37 @@
 var pxd;
 var pxWidth;
 var pxHeight;
+var link;
 
 function setup() {
   createCanvas(1000, 300);
-  // abstractvid = createVideo('summer.mp4');
-  // pxd = pixelDensity();
-  // pxWidth = width * pxd;
-  // pxHeight = height * pxd;
-  // abstractvid.loop(); 
-  // abstractvid.hide(); 
 }
 
 function draw() {
-  background(150);
-  loadPixels();
+  rectMode(CORNER);
+  noStroke();
 
-  // for (var y = 0; y < pxHeight; y++) {
-  //   for (var x = 0; x < pxWidth; x++) { 
-  //     var index = (x + y * pxWidth) * 4; 
-  //     pixels[index] = 0; 
-  //     pixels[index + 3] = 200; 
-  //   }
-  // }
+  fill(236,227,217);
+  stroke(30);
+  rect(10, 10, 980, 280);
 
-  updatePixels();
-  //blendMode(EXCLUSION);
-  image(abstractvid, 50, 50, 300, 450);
+  if ((mouseX >= 400 && mouseX <= 600) && (mouseY >= 100 && mouseY <= 150)) {
+    cursor(HAND);
+    link = true;
+  } else {
+    cursor(ARROW);
+    link = false;
+  }
 
- //   if ((mouseX >= 50 && mouseX <= 550) && (mouseY >= 50 && mouseY <= 400)) {
- //    text("by Sean Crossland", 90, 150); 
- //    textSize(50);
-	// fill(255);
-  // }
+  noStroke();
+  fill(0);
+  text("winter", 400, 150); 
+  textFont("Grouch");
+  textSize(50);
+}
+
+function mousePressed() {
+  if (link == true) {
+    window.open( "drawing-2.html", "_blank");
+  }
 }
