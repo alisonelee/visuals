@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>New York | A Visual Album</title>
+    <style>
+     @import url('https://fonts.googleapis.com/css?family=Roboto');
+      body {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        width: 1950px;
+        height: 100%;
+        margin: auto;
+      }
+      
+      #frames {
+        width: inherit;
+        position: absolute;
+        top: 50%;
+        margin-top: -175px;
+        margin-left: 10%;
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      iframe {
+        float: left;
+        margin: auto;
+        margin-bottom: 50px;
+        background-color: #ece3d9; 
+        border: 0;
+      }
+
+      h1{
+        font-family: 'Roboto', sans-serif;
+      }
+
+      #main-title {
+        margin-top: 500px;
+        margin-left: 300px;
+        font-size: 100px;
+        z-index: 1;
+      }
+
+      #banner {
+        margin-top: 30px;
+      }
+
+      #social {
+        margin-top: 10%;
+        margin-left: 95%;
+        position: fixed;
+      }
+    </style>
+  </head>
+
+  <body>
+  <center><img id="banner" src="media/newyork.png" width="300"></center>
+    <div id="container">
+      <div id="frames">
+        <iframe src="drawings/drawing-1.html" width="1000" height="300"></iframe>
+        <iframe src="drawings/drawing-2.html" width="1000" height="300"></iframe>
+        <iframe src="drawings/drawing-3.html" width="1000" height="300"></iframe>
+      </div>
+    </div>
+    <div id="social">
+      <img src="media/facebook.svg" width="25"><br>
+      <img src="media/twitter.svg" width="25"><br>
+      <img src="media/youtube.svg" width="25">
+    </div>
+  </body>
+</html>
