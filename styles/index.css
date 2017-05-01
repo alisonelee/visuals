@@ -19,7 +19,7 @@ h1 {
 }
 
 #container {
-  width: 1950px;
+  width: 1050px; /*1950px*/
   height: 100%;
   margin: auto;
 }
@@ -29,7 +29,8 @@ h1 {
   position: absolute;
   top: 50%;
   margin-top: -175px;
-  margin-left: 10%;
+  /*margin-left: 20%;*/
+  margin-left: 5px;
   padding-left: 25px;
   padding-right: 25px;
 }
