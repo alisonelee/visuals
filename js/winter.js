@@ -11,6 +11,7 @@ var edge = 200;
 var radius = 15;
 var easing = 1;
 var inner = edge + radius;
+var f;
 
 // Coordinates of label
 var ly;
@@ -18,6 +19,8 @@ var speed;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
+  f = loadFont("../styles/Grouch.ttf", 32);
+
   ellipseMode(RADIUS);
   rectMode(CORNERS);
 
@@ -66,6 +69,7 @@ function draw() {
   noStroke();
   fill(0);
   textSize(50);
+  textFont(f);
   text("winter", window.innerWidth/2-100, window.innerHeight/2); 
   textFont("Grouch");
  
@@ -82,6 +86,7 @@ function draw() {
 
   fill(0);
   textSize(10);
+  textFont(f);
   fill(255);
   text("How Long Will I Love You - Ellie Goulding x Henry Krinkle", 0, ly + 20);
 }

@@ -3,6 +3,7 @@ var rectX, rectY;
 var rectOver = false; 
 var rectColor = 0;
 var link;
+var f;
 
 // Paper shapes
 var p1;
@@ -31,6 +32,7 @@ var locked = false;
 
 function setup() {
   createCanvas(1000, 300);
+  f = loadFont("../styles/Grouch.ttf", 32);
 
   // Initial positions + dimensions for papers
   p1x = 40;
@@ -138,10 +140,9 @@ function draw() {
   rect(t3x, t3y, t3w, t3h);
 
   fill(0);
-  text("fall", 450, 150); 
-  textFont("Grouch");
+  textFont(f);
   textSize(50);
-  
+  text("fall", 450, 150); 
 }
 
 function mousePressed() {

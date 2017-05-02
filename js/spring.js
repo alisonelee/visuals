@@ -5,6 +5,7 @@ var speed = 10;
 var link;
 var a = 0.0;
 var s = 0.0;
+var f;
 
 // Coordinates of label
 var ly;
@@ -14,6 +15,7 @@ var e1, e2, e3, e4, e5, e6, e7, e8;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
+  f = loadFont("../styles/Grouch.ttf", 32);
   frameRate(30);
   xpos = width/2;
   ypos = height/2;
@@ -67,6 +69,7 @@ function draw() {
   noStroke();
   fill(0);
   textSize(50); 
+  textFont(f);
   text("spring", 400, 150); 
   textFont("Grouch");
    
@@ -84,7 +87,7 @@ function draw() {
 
   fill(255);
   textSize(10);
-
+  textFont(f);
   text("Cool Blue - The Japanese House", 0, ly + 20);
 
   a = a + 0.09;

@@ -6,6 +6,7 @@ var pxWidth;
 var pxHeight;
 var link;
 var img;
+var f;
 var edge = 60;
 var radius = 15;
 var easing = 0.09;
@@ -13,7 +14,7 @@ var inner = edge + radius;
 
 function setup() {
   createCanvas(1000, 300);
-  //img = loadImage("../media/ekg.gif"); // Photo credit goes to http://www.12leadecg.com/full/ecgindex.aspx?id=13
+  f = loadFont("../styles/Grouch.ttf", 32);
   ellipseMode(RADIUS);
   rectMode(CORNERS);
 }
@@ -57,12 +58,9 @@ function draw() {
 
   noStroke();
   fill(255);
-  text("winter", 400, 150); 
-  textFont("Grouch");
+  textFont(f);
   textSize(50);
-
-  // image(img, 0, 0);    EKG
-  // image(img, 710, 0);
+  text("winter", 400, 150); 
 }
 
 function mousePressed() {

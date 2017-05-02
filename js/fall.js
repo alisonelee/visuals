@@ -4,6 +4,7 @@ var rectOver = false;
 var rectColor = 0;
 var link;
 var vid;
+var f;
 
 // Paper shapes
 var p1;
@@ -38,6 +39,8 @@ function setup() {
 
   var myCanvas = createCanvas(window.innerWidth, window.innerHeight);
   myCanvas.parent('#content'); 
+  f = loadFont("../styles/Grouch.ttf", 32);
+
   // Initial positions + dimensions for papers
   p1x = 40;
   p1y = 40;
@@ -90,16 +93,7 @@ function draw() {
 
   fill(236,227,217);
   image(vid, 0, 0, window.innerWidth, window.innerHeight);
-  // rect(0, 0, window.innerWidth, window.innerHeight);
-
-  // Checks whether "link" is clicked
-  // if ((mouseX >= 450 && mouseX <= 560) && (mouseY >= 100 && mouseY <= 150)) {
-  //   cursor(HAND);
-  //   link = true;
-  // } else {
-  //   cursor(ARROW);
-  //   link = false;
-  // }
+  filter(GRAY);
 
   // Checks whether paper is dragged
   if ((mouseX > p1x && mouseX < p1x + p1w && mouseY > p1y && mouseY < p1y + p1h)) {
@@ -146,7 +140,6 @@ function draw() {
   rect(p2x, p2y, p2w, p2h);
   rect(p3x, p3y, p3w, p3h);
 
-
   // Label
   rect(0, ly, 200, 30);
 
@@ -158,9 +151,9 @@ function draw() {
      speed = speed * -1;
   }
 
-
   fill(0);
   textSize(10);
+  textFont(f);
   text("Guidance - Ryan Keen x Yeahboy", 0, ly + 20);
   
 
@@ -173,10 +166,9 @@ function draw() {
 
   fill(0);
   textSize(50);
+  textFont(f);
   text("fall", window.width/2 - 60, window.height/2); 
-  textFont("Grouch");
-  
-  
+  textFont("Grouch"); 
 }
 
 function mousePressed() {

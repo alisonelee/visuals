@@ -5,11 +5,13 @@ var speed = 10;
 var link;
 var a = 0.0;
 var s = 0.0;
+var f;
 
 var e1, e2, e3, e4, e5, e6, e7, e8;
 
 function setup() {
   createCanvas(1000, 300);
+  f = loadFont("../styles/Grouch.ttf", 32);
   frameRate(30);
   xpos = width/2;
   ypos = height/2;
@@ -70,8 +72,8 @@ function draw() {
 
   noStroke();
   fill(0);
+  textFont(f);
   text("spring", 400, 150); 
-  textFont("Grouch");
   textSize(50);  
 }
 
