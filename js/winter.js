@@ -96,3 +96,7 @@ function mousePressed() {
     window.open( "winter.html", "_blank");
   }
 }
+
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+}

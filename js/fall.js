@@ -231,3 +231,7 @@ function mouseDragged() {
 function mouseReleased() {
   locked = false;
 }
+
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+}

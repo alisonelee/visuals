@@ -112,3 +112,7 @@ function mousePressed() {
   
   scale(0.5);
 }
+
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+}
