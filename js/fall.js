@@ -3,6 +3,7 @@ var rectX, rectY;
 var rectOver = false; 
 var rectColor = 0;
 var link;
+var vid;
 
 // Paper shapes
 var p1;
@@ -19,6 +20,10 @@ var t1x, t1y, t1w, t1h;
 var t2x, t2y, t2w, t2h;
 var t3x, t3y, t3w, t3h;
 
+// Coordinates of label
+var ly;
+var speed;
+
 // Offsets from interaction
 var xOffset, yOffset;
 var txOffset, tyOffset;
@@ -31,8 +36,8 @@ var locked = false;
 
 function setup() {
 
-  createCanvas(window.innerWidth, window.innerHeight);
-
+  var myCanvas = createCanvas(window.innerWidth, window.innerHeight);
+  myCanvas.parent('#content'); 
   // Initial positions + dimensions for papers
   p1x = 40;
   p1y = 40;
@@ -64,6 +69,16 @@ function setup() {
   t3y = 205;
   t3w = 40;
   t3h = 10;
+
+  // Initial positions for labels
+  ly = 600;
+  speed = 3;
+
+  // Video
+  vid = createVideo('../media/timelapse.mp4');
+  vid.loop();
+  vid.hide();
+  vid.volume(0);
 }
 
 function draw() {
@@ -74,7 +89,8 @@ function draw() {
   noStroke();
 
   fill(236,227,217);
-  rect(0, 0, window.innerWidth, window.innerHeight);
+  image(vid, 0, 0, window.innerWidth, window.innerHeight);
+  // rect(0, 0, window.innerWidth, window.innerHeight);
 
   // Checks whether "link" is clicked
   // if ((mouseX >= 450 && mouseX <= 560) && (mouseY >= 100 && mouseY <= 150)) {
@@ -130,6 +146,24 @@ function draw() {
   rect(p2x, p2y, p2w, p2h);
   rect(p3x, p3y, p3w, p3h);
 
+
+  // Label
+  rect(0, ly, 200, 30);
+
+  // Increment the value of x
+  ly += speed;
+
+  // Constraints
+  if ((ly > height - 50) || (ly < 300)) {
+     speed = speed * -1;
+  }
+
+
+  fill(0);
+  textSize(10);
+  text("Guidance - Ryan Keen x Yeahboy", 0, ly + 20);
+  
+
   // Tape - L to R
   fill(0);
 
@@ -138,9 +172,10 @@ function draw() {
   rect(t3x, t3y, t3w, t3h);
 
   fill(0);
+  textSize(50);
   text("fall", window.width/2 - 60, window.height/2); 
   textFont("Grouch");
-  textSize(50);
+  
   
 }
 

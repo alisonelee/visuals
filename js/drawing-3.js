@@ -41,6 +41,7 @@ function draw() {
   noStroke();
   fill(255);
 
+  //  Inspired by https://processing.org/examples/
   ellipseMode(CENTER);
   var r1 = map(mouseX, 0, width, 0, height-40);
   var r2 = height-40-r1;

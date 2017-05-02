@@ -6,6 +6,10 @@ var link;
 var a = 0.0;
 var s = 0.0;
 
+// Coordinates of label
+var ly;
+var speed;
+
 var e1, e2, e3, e4, e5, e6, e7, e8;
 
 function setup() {
@@ -13,12 +17,13 @@ function setup() {
   frameRate(30);
   xpos = width/2;
   ypos = height/2;
+
+  // Initial positions for labels
+  ly = 600;
+  speed = 3;
 }
 
 function draw() {
-
-  a = a + 0.05;
-  s = cos(a) * 2;
 
 	stroke(255);
 
@@ -27,14 +32,6 @@ function draw() {
 
   fill(236,227,217);
   rect(0, 0, window.innerWidth, window.innerHeight);
-
-  // if ((mouseX >= 400 && mouseX <= 585) && (mouseY >= 100 && mouseY <= 150)) {
-  //   cursor(HAND);
-  //   link = true;
-  // } else {
-  //   cursor(ARROW);
-  //   link = false;
-  // }
 
   // Bubbles - L to R
   noStroke();
@@ -69,9 +66,40 @@ function draw() {
 
   noStroke();
   fill(0);
+  textSize(50); 
   text("spring", 400, 150); 
   textFont("Grouch");
-  textSize(50);  
+   
+
+  // Label
+  rect(0, ly, 200, 30);
+
+  // Increment the value of x
+  ly += speed;
+
+  // Constraints
+  if ((ly > height - 50) || (ly < 300)) {
+     speed = speed * -1;
+  }
+
+  fill(255);
+  textSize(10);
+
+  text("Cool Blue - The Japanese House", 0, ly + 20);
+
+  a = a + 0.09;
+  s = cos(a) * 1.5;
+
+  translate(width/2, height/2);
+  scale(s); 
+  fill(51);
+  ellipse(0, 0, 50, 50); 
+  
+
+  translate(75, 0);
+  fill(220);
+  scale(s);
+  ellipse(0, 0, 50, 50);  
 }
 
 function mousePressed() {

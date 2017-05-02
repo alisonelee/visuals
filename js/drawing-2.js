@@ -28,6 +28,7 @@ function draw() {
   rect(10, 10, 980, 280);
 
   //  Snowball follows cursor
+  //  Inspired by https://processing.org/examples/
   if (abs(mouseX - mx) > 0.1)
     mx = mx + (mouseX - mx) * easing;
   if (abs(mouseY - my) > 0.1)

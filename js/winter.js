@@ -57,7 +57,7 @@ function draw() {
 
   noStroke();
   fill(255);
-  text("winter", 400, 150); 
+  text("winter", window.innerWidth/2-100, window.innerHeight/2); 
   textFont("Grouch");
   textSize(50);
 
