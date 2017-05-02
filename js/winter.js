@@ -6,16 +6,32 @@ var pxWidth;
 var pxHeight;
 var link;
 var img;
-var edge = 60;
+var vid;
+var edge = 200;
 var radius = 15;
-var easing = 0.09;
+var easing = 1;
 var inner = edge + radius;
+
+// Coordinates of label
+var ly;
+var speed;
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
-  //img = loadImage("../media/ekg.gif"); // Photo credit goes to http://www.12leadecg.com/full/ecgindex.aspx?id=13
   ellipseMode(RADIUS);
   rectMode(CORNERS);
+
+  frameRate(30);
+
+  // Video
+  vid = createVideo('../media/snow.mp4');
+  vid.loop();
+  vid.hide();
+  vid.volume(0);
+
+  // Initial positions for labels
+  ly = 600;
+  speed = 3;
 }
 
 function draw() {
@@ -25,7 +41,8 @@ function draw() {
   noStroke();
 
   fill(236,227,217);
-  rect(0, 0, window.innerWidth, window.innerHeight);
+  image(vid, 0, 0, window.innerWidth, window.innerHeight);
+  filter(THRESHOLD);
 
   //  Snowball follows cursor
   //  Inspired by https://processing.org/examples/
@@ -39,30 +56,34 @@ function draw() {
   my = constrain(my, inner, height - inner);
 
   // Box
-  fill(70);
-  rect(edge, edge, width-edge-60, height-edge-60);
+  fill(255);
+  rect(edge, edge, width-edge-200, height-edge-200);
 
   // Snowball
-  fill(255);  
+  fill(0);  
   ellipse(mx, my, radius, radius);
 
-  // Checks whether "link" is clicked
-  if ((mouseX >= 400 && mouseX <= 600) && (mouseY >= 100 && mouseY <= 150)) {
-    cursor(HAND);
-    link = true;
-  } else {
-    cursor(ARROW);
-    link = false;
-  }
-
   noStroke();
-  fill(255);
+  fill(0);
+  textSize(50);
   text("winter", window.innerWidth/2-100, window.innerHeight/2); 
   textFont("Grouch");
-  textSize(50);
+ 
+   // Label
+  rect(0, ly, 370, 30);
 
-  // image(img, 0, 0);    EKG
-  // image(img, 710, 0);
+  // Increment the value of x
+  ly += speed;
+
+  // Constraints
+  if ((ly > height - 50) || (ly < 300)) {
+     speed = speed * -1;
+  }
+
+  fill(0);
+  textSize(10);
+  fill(255);
+  text("How Long Will I Love You - Ellie Goulding x Henry Krinkle", 0, ly + 20);
 }
 
 function mousePressed() {
